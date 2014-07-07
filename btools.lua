@@ -1,1 +1,5 @@
--- Brucey's Tools is not ready yet. Currently porting the old version. See port-old-version branch
+local btools = {}
+
+btools.util = require 'util'
+
+return btools
