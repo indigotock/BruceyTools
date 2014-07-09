@@ -68,13 +68,13 @@ function util.clone_table(table)
 end
 
 -- Default base64 character set
-util.b64_chars =
+util.s64Chars =
   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-."
 
 -- Encodes a string to base64
 function util.encode_base64(string, charset)
   -- If charset and charset is 64 long then charset = charset, else default 
-  charset = (charset and #charset == 64) and charset or util.b64_chars
+  charset = (charset and #charset == 64) and charset or util.s64Chars
   print(charset)
   return ((string:gsub('.', function(x) 
     local r,b='',x:byte()
@@ -92,7 +92,7 @@ end
 -- Decodes a base64 string
 function util.decode_base64(string, charset)
   -- If charset and charset is 64 long then charset = charset, else default 
-  charset = (charset and #charset == 64) and charset or util.b64_chars
+  charset = (charset and #charset == 64) and charset or util.s64Chars
   return (string:gsub('.', function(x)
     if (x == '=') then return '' end
     local r,f='',(charset:find(x)-1)
@@ -106,4 +106,4 @@ function util.decode_base64(string, charset)
     end))
 end
 
-return util
+Apollo.RegisterPackage(util,'indigotock.btools.util',1,{})
