@@ -1,0 +1,21 @@
+local CONTROL_NAME = {}
+
+function CONTROL_NAME:OnLoad()
+  self.xmlDoc = XmlDoc.CreateFromFile('btools/gui/forms.xml')
+end
+
+function constructor(self, container, defaults)
+  local obj = {}
+  setmetatable(obj,{__index = CONTROL_NAME})
+
+  defaults = defaults or {}
+  obj.sClass = "CONTROL_NAME"
+
+  -- Initialisation here
+
+  return obj
+end
+
+setmetatable(CONTROL_NAME,{__call=constructor})
+
+Apollo.RegisterPackage(CONTROL_NAME,'indigotock.btools.gui.CONTROL_NAME',1,{})
