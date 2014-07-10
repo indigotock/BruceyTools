@@ -29,7 +29,7 @@ function constructor(self, container, defaults)
 
   obj.cWindow:Show(false,true)
   obj.cButton:SetText(obj.sText)
-  obj:UpdateWindowSize()
+  obj:update_window()
 
   return obj
 end

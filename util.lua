@@ -6,7 +6,7 @@ function util.merge_table(base, detail)
   detail = detail or {}
   for key, val in pairs(detail) do
     if type(val) == 'table' then
-      mt(base[key] or {}, detail[key] or {})
+      util.merge_table(base[key] or {}, detail[key] or {})
     else
       base[key] = val
     end
