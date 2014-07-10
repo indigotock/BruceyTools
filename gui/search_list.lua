@@ -17,7 +17,7 @@ function constructor(self, container, defaults)
   obj.tHandler = defaults.tHandler or obj
   obj.fSearchMatch = defaults.fSearchMatch or function(item,text) return true end
   obj.fBuildItem = defaults.fBuildItem or function(control, item) end
-  obj.cControl = Apollo.LoadForm(obj.xmlDoc, obj.BUtilClass, container, obj)
+  obj.cControl = Apollo.LoadForm(obj.xmlDoc, obj.sClass, container, obj)
   obj.cSearchBox = obj.cControl:FindChild("SearchBox")
   obj.cItemsList = obj.cControl:FindChild("SearchResultsList")
   obj.bDoneSearching=true
