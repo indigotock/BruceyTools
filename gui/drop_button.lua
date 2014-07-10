@@ -9,6 +9,9 @@ drop_button.cEnabledColour = ApolloColor.new('UI_TextHoloBodyHighlight')
 drop_button.cDisabledColour = ApolloColor.new('UI_BtnTextBlueDisabled')
 
 function constructor(self, container, defaults)
+  if drop_button.xmlDoc == nil then
+    drop_button.xmlDoc = XmlDoc.CreateFromFile('btools/gui/forms.xml')
+  end
   local obj = {}
   setmetatable(obj,{__index = drop_button})
 

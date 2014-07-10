@@ -9,6 +9,9 @@ number_ticker.cEnabledColour = ApolloColor.new('UI_TextHoloBodyHighlight')
 number_ticker.cDisabledColour = ApolloColor.new('UI_BtnTextBlueDisabled')
 
 function constructor(self, container, defaults)
+  if number_ticker.xmlDoc == nil then
+    number_ticker.xmlDoc = XmlDoc.CreateFromFile('btools/gui/forms.xml')
+  end
   local obj = {}
   setmetatable(obj,{__index = number_ticker})
 

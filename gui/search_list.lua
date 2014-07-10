@@ -5,6 +5,9 @@ function search_list:OnLoad()
 end
 
 function constructor(self, container, defaults)
+  if search_list.xmlDoc == nil then
+    search_list.xmlDoc = XmlDoc.CreateFromFile('btools/gui/forms.xml')
+  end
   local obj = {}
   setmetatable(obj,{__index = search_list})
 
