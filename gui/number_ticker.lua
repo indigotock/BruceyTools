@@ -1,7 +1,7 @@
 local number_ticker = {}
 
 function number_ticker:OnLoad()
-  self.xmlDoc = XmlDoc.CreateFromFile('btools/btoolsgui.xml')
+  self.xmlDoc = XmlDoc.CreateFromFile('btools/gui/forms.xml')
 end
 
 
@@ -20,7 +20,7 @@ function constructor(self, container, defaults)
 
   obj.tData = defaults.tData or {}
 
-  obj.cControl = Apollo.LoadForm(number_ticker.xmlDoc, 'number_ticker', container, obj)
+  obj.cControl = Apollo.LoadForm(obj.xmlDoc, 'number_ticker', container, obj)
   obj.cControl:SetData(obj)
   obj.cHeaderBox = obj.cControl:FindChild("ItemHeader")
   obj.cAddBtn = obj.cControl:FindChild("AddBtn")
