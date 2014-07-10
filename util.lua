@@ -67,6 +67,13 @@ function util.clone_table(table)
   return new
 end
 
+-- Returns the number of key/value pairs in the table
+function util.table_size(table)
+  local count = 0
+  for _ in pairs(table) do count = count + 1 end
+  return count
+end
+
 -- Default base64 character set
 util.s64Chars =
   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-."
