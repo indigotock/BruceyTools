@@ -11,7 +11,8 @@ function constructor(self, container, defaults)
   defaults = defaults or {}
   obj.sClass = "slider"
 
-  -- Initialisation here
+  obj.cControl = Apollo.LoadForm(obj.xmlDoc, obj.sClass, container, obj)
+  
 
   return obj
 end
