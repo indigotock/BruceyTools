@@ -20,13 +20,13 @@ function constructor(self, container, defaults)
   obj.nTickAmount = defaults.nTickAmount or 1
 
   obj.fValueMod = defaults.fValueMod or function(v) return v end
+  obj.fChangeCallback = defaults.fChangeCallback or function(v) end
 
   obj.cControl:FindChild('text_header'):SetText(defaults.sHeader or "")
   obj.cControl:FindChild('slider_control'):AddEventHandler("SliderBarChanged","event_slider_change",obj)
   obj.cControl:FindChild('slider_control'):SetMinMax(obj.nMinValue,obj.nMaxValue)
-  obj.cControl:FindChild('slider_control'):SetValue(obj.nMinValue)
-  obj.fChangeCallback = defaults.fChangeCallback or function(v) end
-  obj:event_slider_change()
+  obj.cControl:FindChild('slider_control'):SetValue(defaults.nInitialValue or obj.nMinValue)
+  obj.cControl:FindChild('text_value'):SetText(tostring(obj.fValueMod(obj.cControl:FindChild('slider_control'):GetValue())))
   return obj
 end
 
