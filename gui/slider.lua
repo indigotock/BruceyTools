@@ -5,6 +5,9 @@ function slider:OnLoad()
 end
 
 function constructor(self, container, defaults)
+  if slider.xmlDoc == nil then
+    slider.xmlDoc = XmlDoc.CreateFromFile('btools/gui/forms.xml')
+  end
   local obj = {}
   setmetatable(obj,{__index = slider})
 
