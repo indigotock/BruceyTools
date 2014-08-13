@@ -51,8 +51,9 @@ function constructor(self, container, defaults)
   obj.cSubtractBtn:AddEventHandler("ButtonSignal","event_subtract",obj)
   obj.cEditBox:AddEventHandler("EditBoxChanged","event_type",obj)
   obj.cHeaderBox:SetText(obj.sHeaderText)
-  self.nPreviousValue = obj.nDefaultValue
-  self.cEditBox:SetText(tostring(obj.nDefaultValue or self.nPreviousValue))
+  
+  obj.nPreviousValue = obj.nDefaultValue
+  obj.cEditBox:SetText(tostring(obj.nDefaultValue or obj.nPreviousValue))
 
   return obj
 end
@@ -98,4 +99,4 @@ end
 
 setmetatable(number_ticker,{__call=constructor})
 
-Apollo.RegisterPackage(number_ticker,'indigotock.btools.gui.number_ticker',1,{})
+Apollo.RegisterPackage(number_ticker,'indigotock.btools.gui.number_ticker',2,{})
