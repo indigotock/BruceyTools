@@ -23,7 +23,10 @@ function constructor(self, container, defaults)
 
   obj.tData = defaults.tData or {}
 
-  obj.cControl = Apollo.LoadForm(obj.xmlDoc, 'number_ticker', container, obj)
+  obj.cControl = Apollo.LoadForm(obj.xmlDoc, obj.sClass, container, obj)
+
+if not container then return end
+
   obj.cControl:SetData(obj)
   obj.cHeaderBox = obj.cControl:FindChild("ItemHeader")
   obj.cAddBtn = obj.cControl:FindChild("AddBtn")
