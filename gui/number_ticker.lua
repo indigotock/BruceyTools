@@ -51,7 +51,8 @@ function constructor(self, container, defaults)
   obj.cSubtractBtn:AddEventHandler("ButtonSignal","event_subtract",obj)
   obj.cEditBox:AddEventHandler("EditBoxChanged","event_type",obj)
   obj.cHeaderBox:SetText(obj.sHeaderText)
-  obj:set_value(obj.nDefaultValue, true)
+  self.nPreviousValue = obj.nDefaultValue
+  self.cEditBox:SetText(tostring(obj.nDefaultValue or self.nPreviousValue))
 
   return obj
 end
@@ -89,13 +90,10 @@ end
 function number_ticker:get_value()
   return tonumber(self.cEditBox:GetText()) or self.nDefaultValue
 end
-
-function number_ticker:set_value( nValue, missCallback )
+function number_ticker:set_value( nValue )
   self.nPreviousValue = nValue
   self.cEditBox:SetText(tostring(nValue or self.nPreviousValue))
-  if not missCallback then
   self.fOnChangeValue(self, nValue)
-end
 end
 
 setmetatable(number_ticker,{__call=constructor})
