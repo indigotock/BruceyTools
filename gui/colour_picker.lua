@@ -6,6 +6,7 @@ end
 
 local function toHex(num) 
      local hexstr = '0123456789abcdef' 
+     num = num or 0
      local s = '' 
      while num > 0 do 
          local mod = math.fmod(num, 16) 
@@ -31,6 +32,7 @@ function constructor(self, container, defaults)
   obj.values.r = defaults.nRedValue or 0
   obj.values.g = defaults.nGreenValue or 0
   obj.values.b = defaults.nBlueValue or 0
+  obj.values.a = defaults.nAlphaValue or 0
   
   local sc = Apollo.GetPackage('indigotock.btools.gui.slider').tPackage
 
