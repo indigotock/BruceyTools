@@ -1,7 +1,7 @@
 local colour_picker = {}
 
 function colour_picker:OnLoad()
-  self.xmlDoc = XmlDoc.CreateFromFile('brucey-tools/gui/forms.xml')
+  self.xmlDoc = XmlDoc.CreateFromFile('btools/gui/forms.xml')
 end
 
 local function toHex(num) 
@@ -20,7 +20,7 @@ local function toHex(num)
 
 function constructor(self, container, defaults)
   if colour_picker.xmlDoc == nil then
-    colour_picker.xmlDoc = XmlDoc.CreateFromFile('brucey-tools/gui/forms.xml')
+    colour_picker.xmlDoc = XmlDoc.CreateFromFile('btools/gui/forms.xml')
   end
   local obj = {}
   setmetatable(obj,{__index = colour_picker})
