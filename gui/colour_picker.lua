@@ -41,6 +41,8 @@ function constructor(self, container, defaults)
     fChangeCallback = function(val) obj.values.g = val obj:callback() end})
   obj.cGreenSlider = sc(obj.cControl:FindChild('green_slider'), {sHeader = 'Blue: ', nMinValue = 0, nMaxValue = 255, nInitialValue = obj.values.b,
     fChangeCallback = function(val) obj.values.b = val obj:callback() end})
+  obj.cGreenSlider = sc(obj.cControl:FindChild('alpha_slider'), {sHeader = 'Alpha: ', nMinValue = 0, nMaxValue = 255, nInitialValue = obj.values.b,
+    fChangeCallback = function(val) obj.values.a = val obj:callback() end})
 
 
   obj:callback()
@@ -48,7 +50,7 @@ function constructor(self, container, defaults)
 end
 
 function colour_picker:callback()
-  local hexVal = 'ff'..toHex(self.values.r)..toHex(self.values.g)..toHex(self.values.b)
+  local hexVal = toHex(self.values.a)..toHex(self.values.r)..toHex(self.values.g)..toHex(self.values.b)
   self.cControl:FindChild('colour_indicator'):SetBGColor(hexVal)
   self.fCallback(hexVal)
 end
