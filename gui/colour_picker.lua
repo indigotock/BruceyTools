@@ -55,10 +55,6 @@ function colour_picker:callback()
   self.fCallback(hexVal)
 end
 
-function colour_picker:get_value()
-  return {}
-end
-
 setmetatable(colour_picker,{__call=constructor})
 
 Apollo.RegisterPackage(colour_picker,'indigotock.btools.gui.colour_picker',1,{})
