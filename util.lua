@@ -47,6 +47,11 @@ function util.serialise_table(table, key)
   return ret:gsub(',\}','}')
 end
 
+-- Trims whitespace from the end and start of a string
+function util.trim_string(str)
+  return str:gsub("^\\s*", ""):gsub("\\s*$", "")
+end
+
 -- Deserialises a table and returns the result, or nil if it failed.
 function util.deserialise_table(string)
   local loaded = loadstring('return '..string)
