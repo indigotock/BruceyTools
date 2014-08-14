@@ -118,4 +118,4 @@ function util.decode_base64(string, charset)
     end))
 end
 
-Apollo.RegisterPackage(util,'indigotock.btools.util',1,{})
+Apollo.RegisterPackage(util,'indigotock.btools.util',2,{})
