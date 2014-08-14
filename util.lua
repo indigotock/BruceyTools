@@ -49,7 +49,7 @@ end
 
 -- Trims whitespace from the end and start of a string
 function util.trim_string(str)
-  return str:gsub("^\\s*", ""):gsub("\\s*$", "")
+  return str:gsub("^%s*(.-)%s*$", "%1")
 end
 
 -- Deserialises a table and returns the result, or nil if it failed.
